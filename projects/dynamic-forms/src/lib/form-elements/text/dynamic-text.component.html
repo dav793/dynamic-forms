@@ -1,0 +1,91 @@
+
+<div [formGroup]="group">
+
+  <!-- FormControl is not inside a FormArray -->
+  <div *ngIf="!isFormArrayMember">
+    <div *ngIf="!multiple">
+
+      <div class="form-group">
+        <label class="center-block">
+          <p *ngIf="!labelIsEmpty" class="form-label"><i *ngIf="icon" [ngClass]="icon" class="fa"  aria-hidden="true"></i> {{label}}</p>
+          <input (keydown.enter)="submit()" type="{{inputType}}" class="form-control" formControlName="{{controlName}}">
+        </label>
+
+        <div *ngIf="formControl.errors">
+          <div *ngFor="let key of errorKeys" class="text-danger text-sm">
+            <small *ngIf="formControl.errors[key]">{{errorMessages[key]}}</small>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div *ngIf="multiple">
+
+      <div class="form-group">
+        <label class="center-block">
+          <p *ngIf="!labelIsEmpty" class="form-label"><i *ngIf="icon" [ngClass]="icon" class="fa"  aria-hidden="true"></i> {{label}}</p>
+          <input class="form-control" type="{{inputType}}" #insertBox (keyup)="onKeystroke(insertBox.value)" (keyup.enter)="onEnter(insertBox)" (blur)="onBlur(insertBox)" placeholder="{{ placeholder }}">
+        </label>
+
+        <div *ngIf="formControl.errors">
+          <div *ngFor="let key of errorKeys" class="text-danger text-sm">
+            <small *ngIf="formControl.errors[key]">{{errorMessages[key]}}</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="chip" *ngFor="let value of formControlValue; let i = index">
+          {{ value }}&nbsp;<i class="fa fa-times clickable" aria-hidden="false" (click)="removeFromFormControl(i)"></i>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FormControl is inside a FormArray -->
+  <div *ngIf="isFormArrayMember">
+    <div *ngIf="!multiple">
+
+      <div formArrayName="{{arrayName}}">
+        <div class="form-group" [formGroupName]="indexInArray">
+          <label class="center-block">
+            <p *ngIf="!labelIsEmpty" class="form-label">{{label}}</p>
+            <input (keydown.enter)="submit()" type="{{inputType}}" class="form-control" formControlName="{{controlName}}">
+          </label>
+
+          <div *ngIf="formControl.errors">
+            <div *ngFor="let key of errorKeys" class="text-danger text-sm">
+              <small *ngIf="formControl.errors[key]">{{errorMessages[key]}}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div *ngIf="multiple">
+
+      <div class="form-group">
+        <label class="center-block">
+          <p *ngIf="!labelIsEmpty" class="form-label">{{label}}</p>
+          <input class="form-control" type="{{inputType}}" #insertBox (keyup)="onKeystroke(insertBox.value)" (keyup.enter)="onEnter(insertBox)" (blur)="onBlur(insertBox)" placeholder="{{ placeholder }}">
+        </label>
+
+        <div *ngIf="formControl.errors">
+          <div *ngFor="let key of errorKeys" class="text-danger text-sm">
+            <small *ngIf="formControl.errors[key]">{{errorMessages[key]}}</small>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="chip" *ngFor="let value of formControlValue; let i = index">
+          {{ value }}&nbsp;<i class="fa fa-times clickable" aria-hidden="false" (click)="removeFromFormControl(i)"></i>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

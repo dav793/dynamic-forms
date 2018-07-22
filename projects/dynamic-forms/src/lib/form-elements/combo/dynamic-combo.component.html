@@ -1,0 +1,86 @@
+
+<div *ngIf="!multiple">
+
+  <div class="form-group" #compBox>
+    <label *ngIf="!labelIsEmpty" class="center-block">
+      <i *ngIf="icon" [ngClass]="icon" class="fa" aria-hidden="true"></i> {{label}}
+    </label>
+
+    <div class="pos-rel">
+      <div class="form-control input-box">
+        <div class="grow1 w90">
+          <div class="selected-box">{{ getOptionLabel(formControlValue) }}</div>
+          <div *ngIf="!searchBoxFocused && emptySelection" class="placeholder">{{ placeholder }}</div>
+          <div [ngClass]="{'dontshow': !searchBoxFocused}">
+            <input #searchBox *ngIf="searchEnabled" (keyup)="updateSearch(searchBox.value)" (keyup.enter)="insertCustomUserOption(searchBox.value)" type="text"/>
+            <div *ngIf="!searchEnabled" class="textbox-substitute"></div>
+          </div>
+        </div>
+        <div class="caret"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+      </div>
+
+      <div *ngIf="expanded" class="options-box">
+        <div *ngFor="let option of options | filterSearch:search; let i = index">
+          <div *ngIf="!removeSelectedFromOptions || (removeSelectedFromOptions && !option.hidden)" class="option" (click)="selectOption(option)">
+            {{option.label}}
+          </div>
+        </div>
+        <div *ngIf="emptyOptions" class="no-matches">no matches</div>
+      </div>
+
+      <div *ngIf="formControl.errors">
+        <div *ngFor="let key of errorKeys" class="text-danger text-sm">
+          <small *ngIf="formControl.errors[key]">{{errorMessages[key]}}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div *ngIf="multiple">
+
+  <div class="form-group" #compBox>
+    <label *ngIf="!labelIsEmpty" class="center-block">
+      <i *ngIf="icon" [ngClass]="icon" class="fa" aria-hidden="true"></i> {{label}}
+    </label>
+
+    <div class="pos-rel">
+      <div class="form-control input-box">
+        <div class="grow1 w90">
+          <div *ngIf="!searchBoxFocused" class="placeholder">{{ placeholder }}</div>
+          <div class="selected-box">{{ getOptionLabel(formControlValue) }}</div>
+          <div [ngClass]="{'dontshow': !searchBoxFocused}">
+            <input #searchBox *ngIf="searchEnabled" (keyup)="updateSearch(searchBox.value)" (keyup.enter)="insertCustomUserOption(searchBox.value)" type="text" class="full-width"/>
+            <div *ngIf="!searchEnabled" class="textbox-substitute"></div>
+          </div>
+        </div>
+        <div class="caret"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+      </div>
+
+      <div *ngIf="expanded" class="options-box">
+        <div *ngFor="let option of options | filterSearch:search; let i = index">
+          <div *ngIf="!removeSelectedFromOptions || (removeSelectedFromOptions && !option.hidden)" class="option" (click)="selectMultiOption(option)">
+            {{option.label}}
+          </div>
+        </div>
+        <div *ngIf="emptyOptions" class="no-matches">no matches</div>
+      </div>
+    </div>
+
+    <div *ngIf="formControl.errors">
+      <div *ngFor="let key of errorKeys" class="text-danger text-sm">
+        <small *ngIf="formControl.errors[key]">{{errorMessages[key]}}</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="chip" *ngFor="let value of formControlValue; let i = index">
+        {{ getOptionLabel(value) }}&nbsp;<i class="fa fa-times clickable" aria-hidden="false" (click)="removeFromFormControl(i)"></i>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+

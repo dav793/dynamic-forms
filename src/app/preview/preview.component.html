@@ -1,0 +1,191 @@
+
+<h1>FORM ELEMENTS</h1>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+
+      <dynamic-text-input
+        [label]="'Text Single'"
+        [group]="previewForm"
+        [controlName]="'textSingle'"
+        [errorMessages]="validationMessages.genericField"
+      ></dynamic-text-input>
+
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+
+      <dynamic-text-input
+        [label]="'Text Multiple'"
+        [placeholder]="'Type and press \'Enter\' to add'"
+        [multiple]="true"
+        [group]="previewForm"
+        [controlName]="'textMulti'"
+        [errorMessages]="validationMessages.genericField"
+      ></dynamic-text-input>
+
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+
+      <dynamic-textarea-input
+        [label]="'Text Area'"
+        [rows]="3"
+        [group]="previewForm"
+        [controlName]="'textArea'"
+        [errorMessages]="validationMessages.genericField"
+      ></dynamic-textarea-input>
+
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+
+      <dynamic-money-input
+        [label]="'Money Single'"
+        [group]="previewForm"
+        [controlName]="'moneySingle'"
+        [errorMessages]="validationMessages.genericField"
+      ></dynamic-money-input>
+
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>
+
+<!--<dynamic-money-input-->
+  <!--[label]="'Money Multiple'"-->
+  <!--[multiple]="true"-->
+  <!--[group]="previewForm"-->
+  <!--[controlName]="'moneyMulti'"-->
+  <!--[errorMessages]="validationMessages.genericField"-->
+<!--&gt;</dynamic-money-input>-->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+
+      <dynamic-date-input
+        [label]="'Date Single (dd/mm/yyyy)'"
+        [group]="previewForm"
+        [controlName]="'dateSingle'"
+        [errorMessages]="validationMessages.genericField"
+      ></dynamic-date-input>
+
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>
+
+<!--<dynamic-date-input-->
+  <!--[label]="'Date Multiple (dd/mm/yyyy)'"-->
+  <!--[group]="previewForm"-->
+  <!--[controlName]="'dateMulti'"-->
+  <!--[errorMessages]="validationMessages.genericField"-->
+<!--&gt;</dynamic-date-input>-->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+
+      <dynamic-time-input
+        [label]="'At'"
+        [group]="previewForm"
+        [controlName]="'timeSingle'"
+        [errorMessages]="validationMessages.genericField"
+      ></dynamic-time-input>
+
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>
+
+<!-- timeMulti -->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+
+      <dynamic-combo-input
+        [label]="'Combo Single'"
+        [placeholder]="'Select an option'"
+        [searchEnabled]="true"
+        [options]="comboOptions"
+        [group]="previewForm"
+        [controlName]="'comboSingle'"
+        [errorMessages]="validationMessages.genericField"
+      ></dynamic-combo-input>
+
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+
+      <dynamic-combo-input
+        [label]="'Combo Multiple'"
+        [placeholder]="'Select one or more options'"
+        [searchEnabled]="true"
+        [multiple]="true"
+        [options]="comboOptions"
+        [group]="previewForm"
+        [controlName]="'comboMulti'"
+        [errorMessages]="validationMessages.genericField"
+      ></dynamic-combo-input>
+
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+
+      <dynamic-check-input
+        [label]="'Check'"
+        [group]="previewForm"
+        [controlName]="'check'"
+      ></dynamic-check-input>
+
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<h4>LIVE FORM VALUE</h4>
+<pre *ngIf="previewForm">{{ previewForm.value | json }}</pre>

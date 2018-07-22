@@ -1,0 +1,22 @@
+
+<div class="checkbox" [ngClass]="{'nomgs' : noMargins}" [formGroup]="group">
+
+  <!-- FormControl is not inside a FormArray -->
+  <div *ngIf="!isFormArrayMember">
+    <label class="center-block">
+      <input type="checkbox" formControlName="{{controlName}}">{{label}}
+    </label>
+  </div>
+
+  <!-- FormControl is inside a FormArray -->
+  <div *ngIf="isFormArrayMember">
+    <div formArrayName="{{arrayName}}">
+      <div class="form-group" [ngClass]="{'nomgs' : noMargins}" [formGroupName]="indexInArray">
+        <label class="center-block">
+          <input type="checkbox" formControlName="{{controlName}}"> {{label}}
+        </label>
+      </div>
+    </div>
+  </div>
+
+</div>
