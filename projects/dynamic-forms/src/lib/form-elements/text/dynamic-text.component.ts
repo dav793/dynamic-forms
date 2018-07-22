@@ -6,7 +6,7 @@ import { DynamicInputBase } from "../dynamic-base";
 @Component({
   selector: 'dynamic-text-input',
   templateUrl: './dynamic-text.component.html',
-  styleUrls: ['./dynamic-text.component.css']
+  styleUrls: ['./dynamic-text.component.css', './../styles.css']
 })
 
 export class DynamicTextComponent extends DynamicInputBase {

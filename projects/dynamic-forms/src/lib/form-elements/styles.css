@@ -1,0 +1,14 @@
+
+label {
+  font-weight: bold;
+  display: block;
+}
+
+.input-group-addon {
+  width: unset;
+  display: inherit;
+}
+
+input[type="checkbox"] {
+  margin-right: 5px;
+}

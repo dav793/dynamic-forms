@@ -10,7 +10,7 @@ const moment = momentImported;
 @Component({
   selector: 'dynamic-date-input',
   templateUrl: './dynamic-date.component.html',
-  styleUrls: ['./dynamic-date.component.css']
+  styleUrls: ['./dynamic-date.component.css', './../styles.css']
 })
 
 export class DynamicDateComponent extends DynamicInputBase {

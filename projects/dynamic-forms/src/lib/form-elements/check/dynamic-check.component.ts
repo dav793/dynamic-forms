@@ -6,7 +6,7 @@ import { DynamicInputBase } from "../dynamic-base";
 @Component({
   selector: 'dynamic-check-input',
   templateUrl: './dynamic-check.component.html',
-  styleUrls: ['./dynamic-check.component.css']
+  styleUrls: ['./dynamic-check.component.css', './../styles.css']
 })
 
 export class DynamicCheckComponent extends DynamicInputBase {

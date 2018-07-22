@@ -20,3 +20,7 @@
 .form-label {
   margin-bottom: 5px;
 }
+
+label.center-block {
+  width: 100%;
+}

@@ -67,13 +67,17 @@
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
 }
 
-.options-box .option {
+.options-box > * {
   padding: 0 12px;
+}
+
+.options-box > .option {
   cursor: pointer;
 }
 
-.options-box .option:hover {
-  background-color: #efefef;
+.options-box > .option:hover {
+  background-color: #336699;
+  color: #f1f1f1;
 }
 
 .no-matches {
@@ -123,4 +127,8 @@
 
 label {
   margin-bottom: 5px;
+}
+
+.fnt-small {
+  font-size: 0.9em;
 }

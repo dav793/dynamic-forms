@@ -14,7 +14,7 @@ import { Option } from '../../models';
     '(document:click)': 'handleClick($event)',
   },
   templateUrl: './dynamic-combo.component.html',
-  styleUrls: ['./dynamic-combo.component.css']
+  styleUrls: ['./dynamic-combo.component.css', './../styles.css']
 })
 
 export class DynamicComboComponent extends DynamicInputBase implements OnChanges {
@@ -30,6 +30,7 @@ export class DynamicComboComponent extends DynamicInputBase implements OnChanges
   @Input() searchEnabled: boolean;
   @Input() acceptAnyInput: boolean;
   @Input() removeSelectedFromOptions: boolean;
+  @Input() fontSize: string;    // 'small'|'medium'
   @Input() errorMessages: any;
   @Input() options: Option[] = [];
   @Input() asyncOptions: Observable<Option[]>;
@@ -42,12 +43,20 @@ export class DynamicComboComponent extends DynamicInputBase implements OnChanges
   expanded: boolean;
   search: any;
   asyncOptionsSub: any;
+  fontSizeCategory = 'medium';
 
   constructor(private elem: ElementRef) {
     super();
   }
 
   ngOnChanges(changes: {[ propName: string]: SimpleChange}) {
+    if (changes['fontSize']) {
+      if (changes['fontSize'].currentValue === 'small')
+        this.fontSizeCategory = 'small';
+      else if (changes['fontSize'].currentValue === 'medium')
+        this.fontSizeCategory = 'medium';
+    }
+
     if (changes['options'])
       this.updateOptions();
 

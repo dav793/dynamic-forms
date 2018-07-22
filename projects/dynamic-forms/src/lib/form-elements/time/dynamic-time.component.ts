@@ -8,7 +8,7 @@ declare var $: any;
 @Component({
   selector: 'dynamic-time-input',
   templateUrl: './dynamic-time.component.html',
-  styleUrls: ['./dynamic-time.component.css']
+  styleUrls: ['./dynamic-time.component.css', './../styles.css']
 })
 
 export class DynamicTimeComponent extends DynamicInputBase {

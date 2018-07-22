@@ -10,7 +10,7 @@ declare var $: any;
 @Component({
   selector: 'dynamic-money-input',
   templateUrl: './dynamic-money.component.html',
-  styleUrls: ['./dynamic-money.component.css']
+  styleUrls: ['./dynamic-money.component.css', './../styles.css']
 })
 
 export class DynamicMoneyComponent extends DynamicInputBase {
